@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            position: relative;
+            height: 2vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #31504e;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 2;
+        }
+
+        header nav .logo h2 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ff6f61;
+        }
+
+        header .menu {
+            display: flex;
+            align-items: center;
+        }
+
+        header .user-icon {
+            margin-left: 100px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        header .user-icon p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        section.bodyweb {
+            display: flex;
+            margin-top: 80px; 
+            padding: 20px;
+        }
+
+        .col-left {
+            flex: 7;
+            background-color: #f4f4f4;
+            padding: 15px;
+        }
+
+        .col-right {
+            flex: 5;
+            background-color: #e0e0e0;
+            padding: 15px;
+        }
+        .search-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .search-container input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    .search-container button {
+        padding: 10px 20px;
+        background-color: #ff6f61;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .search-container button:hover {
+        background-color: #e65c51;
+    }
+
+    .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: calc(33.33% - 20px);
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-item h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+
+    .product-item h3 {
+        margin: 10px 0;
+        font-size: 1.2rem;
+    }
+
+    .stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 60px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.stats-table th,
+.stats-table td {
+    padding: 8px 10px;
+    text-align: center;
+}
+
+.stats-table thead th {
+    background-color: #31504e;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.stats-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.stats-table tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.stats-table tfoot td {
+    font-weight: bold;
+    background-color: #f4f4f4;
+}
+
+.stats-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.stats-table th,
+.stats-table td {
+    border: none;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+       
+        <nav>
+            <div class="logo">
+                <h2>FOOD</h2>
+            </div>
+            <div class="menu">
+                <a href="index.html">Trang chủ</a>
+                <a href="#">Sản phẩm</a>
+                <a href="#">Giới thiệu</a>
+                <a href="#">Liên hệ</a>
+                <a href="#">Thống kê</a>
+                <div class="user-icon">
+                    <p>Xin chào Lâm</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bodyweb">
+        <div class="col-left">
+            <div class="search-container">
+                <input id="customer-name" type="text" placeholder="Nhập tên khách hàng">
+                <input id="product-name" type="text" placeholder="Nhập tên sản phẩm">
+            </div>
+            
+      
+            <div class="product-list" id="product-list">
+                <div class="product-item" >
+                    <img src="https://imgcdn.thitruongsi.com/tts/rs:fill:600:0:1:1/g:sm/plain/file://product/2023/10/11/d892b800-6815-11ee-ab6f-05e4bec025c1.jpg" alt="Bánh tráng 1">
+                    <h3>Bánh tráng xi ke</h3>
+                   
+                </div>
+                <div class="product-item" >
+                    <img src="https://product.hstatic.net/200000598299/product/upload_2acf4bc9fe4b4f9d9086c490831f6a42_1024x1024.jpg" alt="Bánh tráng 2">
+                    <h3>Bánh tráng phơi sương</h3>
+                   
+                </div>
+                <div class="product-item" >
+                    <img src="https://down-vn.img.susercontent.com/file/f17cde9b1a29028176facecf6ab30a52" alt="Bánh tráng 3">
+                    <h3>Bánh tráng top mỡ</h3>
+                    
+                </div>
+                <div class="product-item" >
+                    <img src="https://imgcdn.thitruongsi.com/tts/rs:fill:600:0:1:1/g:sm/plain/file://product/2023/10/11/d892b800-6815-11ee-ab6f-05e4bec025c1.jpg" alt="Bánh tráng 1">
+                    <h3>Bánh tráng xi ke</h3>
+                   
+                </div>
+                <div class="product-item" >
+                    <img src="https://product.hstatic.net/200000598299/product/upload_2acf4bc9fe4b4f9d9086c490831f6a42_1024x1024.jpg" alt="Bánh tráng 2">
+                    <h3>Bánh tráng phơi sương</h3>
+                   
+                </div>
+                <div class="product-item" >
+                    <img src="https://down-vn.img.susercontent.com/file/f17cde9b1a29028176facecf6ab30a52" alt="Bánh tráng 3">
+                    <h3>Bánh tráng top mỡ</h3>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-right">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Tổng tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bánh tráng xi ke</td>
+                        <td>5</td>
+                        <td>20,000</td>
+                        <td>100,000</td>
+                    </tr>
+                    <tr>
+                        <td>Bánh tráng phơi sương</td>
+                        <td>3</td>
+                        <td>30,000</td>
+                        <td>90,000</td>
+                    </tr>
+                    <tr>
+                        <td>Bánh tráng tóp mỡ</td>
+                        <td>10</td>
+                        <td>15,000</td>
+                        <td>150,000</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><strong>Tổng cộng</strong></td>
+                        <td><strong>340,000</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="button-container">
+                <button class="btn save-btn">Lưu</button>
+                <button class="btn cancel-btn">Hủy bỏ</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
