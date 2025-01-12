@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNACK BOAT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      position: relative;
+      background: url('https://static.vinwonders.com/production/banh-trang-tron-nha-trang-banner-1.jpg') no-repeat center center/cover;
+      height: 70vh;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); 
+      z-index: 1;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      z-index: 2; 
+    }
+
+    header nav .logo h2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #ff6f61;
+    }
+
+    header .menu {
+      display: flex;
+      align-items: center;
+    }
+
+    header .search-container {
+      position: relative;
+      margin-left: 20px;
+    }
+
+    header .search-container input {
+      padding: 8px 30px 8px 10px;
+      border: none;
+      border-radius: 20px;
+      width: 200px;
+      font-size: 1rem;
+    }header .search-container .search-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #fff;
+    }
+
+    header .user-icon {
+      margin-left: 100px;
+      cursor: pointer;
+      background-color: #fff;
+      border: none;
+      border-radius: 25%;
+      padding: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    header .user-icon:hover {
+      background-color: #ff6f61;
+      transform: scale(1.1);
+    }
+
+    header .user-icon i {
+      font-size: 1.5rem;
+      color: #333;
+    } header .hero {
+      position: absolute;
+      bottom: 20px;
+      left: 40px;
+      max-width: 60%;
+      z-index: 2;
+    }
+
+    header .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #f1f1f1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    header .hero p {
+      font-size: 1.2rem;
+      color: #f1f1f1;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .special-deals {
+      padding: 40px 40px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: -50px;
+      z-index: 1;
+    }
+
+    .special-deals h2 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #333;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .deals-container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .deal {
+      flex: 0 0 300px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .deal:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }.deal img {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .deal p {
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      background-color: #ff6f61;
+      color: #fff;
+      border-top: 1px solid #ddd;
+    }
+
+   
+   
+  </style></head>
+<body>
+  <header>
+    <div class="overlay"></div> 
+    <nav>
+      <div class="logo">
+        <h2>FOOD</h2>
+      </div>
+      <div class="menu">
+        <a href="#">Trang chủ</a>
+        <a href="#">Sản phẩm</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Liên hệ</a>
+        <a href="#">Thống kê</a>
+        <div class="search-container">
+          <input type="text" placeholder="Tìm kiếm..." id="search-input">
+          <span class="search-icon">&#128269;</span>
+        </div>
+        <div class="user-icon">
+          <i class="fa fa-user"></i>
+        </div>
+      </div>
+    </nav>
+    <div class="hero">
+      <h1>Bánh tráng: Món ngon nhất trên bàn Nhậu</h1>
+      <p>
+        Thưởng thức những món ăn nhẹ hấp dẫn trong khi du ngoạn qua vùng nước tuyệt đẹp.
+         Từ những món ăn mặn đến những món ăn ngọt, chúng tôi mang đến trải nghiệm tuyệt vời nhất trên tàu với nhiều hương vị đa dạng.
+      </p>
+    </div> </header>
+    <section class="special-deals">
+      <h2>Ưu Đãi Đặc Biệt - Bánh Tráng</h2>
+      <div class="deals-container">
+        <div class="deal">
+          <img src="https://static.vinwonders.com/2022/12/banh-trang-kep-da-nang-1.jpg" alt="Deal 1">
+          <p>Bánh Tráng Kẹp Hải Sản</p>
+        </div>
+        <div class="deal">
+          <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m0vs32y3yd4d1e" alt="Deal 2">
+          <p>Combo Bánh Tráng & Nước Chấm</p>
+        </div>
+        <div class="deal">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO-oF6v3v0xiKqqb_ruEm3IrPptgw_PEHSFw&s" alt="Deal 3">
+          <p>Bánh Tráng xì ke</p>
+        </div>
+        <div class="deal">
+          <img src="https://down-vn.img.susercontent.com/file/vn-11134207-23030-63n2sn9t1tovb3" alt="Deal 4">
+          <p>Gói Bánh Tráng Gia Đình</p>
+        </div>
+      </div>
+    </section>
+  </body>
+  </html>
